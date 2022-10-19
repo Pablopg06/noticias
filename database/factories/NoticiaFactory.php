@@ -21,7 +21,7 @@ class NoticiaFactory extends Factory
         return [
             'epigrafe'=>$this->faker->sentence(),
             'titulo'=>$titulo,
-            'slug'=>Str::slug($titulo,'-'),
+            //'slug'=>Str::slug($titulo,'-'),
             'subtitulo'=>$this->faker->sentence(),
             'cuerpo'=>$this->faker->paragraph(),
             'piefoto'=>$this->faker->sentence()

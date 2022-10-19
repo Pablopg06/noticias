@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Crear Noticia</title>
+    <title>Editar Noticia</title>
 </head>
 <body>
-    <h1>Seccion para crear una noticia</h1>
-    <br>
-    <form action="{{route('noticias.store')}}" method="POST">
+    <h1>Edición de Noticia</h1>
+    <form action="{{route('noticias.update',$noticia)}}" method="POST">
+
         @csrf
+
+        @method('put')
+
         <label>
             Epigrafe:
-            <input type="text" name="epigrafe" value="{{old('epigrafe')}}">
+            <input type="text" name="epigrafe" value="{{old('epigrafe',$noticia->epigrafe)}}">
         </label>
 
         @error('epigrafe')
@@ -25,7 +28,7 @@
 
         <label>
             Titulo:
-            <input type="text" name="titulo" value="{{old('titulo')}}">
+            <input type="text" name="titulo" value="{{old('titulo',$noticia->titulo)}}">
         </label>
 
         @error('titulo')
@@ -37,7 +40,7 @@
 
         <label>
             Subtitulo:
-            <input type="text" name="subtitulo" value="{{old('subtitulo')}}">
+            <input type="text" name="subtitulo" value="{{old('subtitulo',$noticia->subtitulo)}}">
         </label>
 
         @error('subtitulo')
@@ -49,7 +52,7 @@
 
         <label>
             Cuerpo:
-            <textarea name="cuerpo" cols="30" rows="10">{{old('cuerpo')}}</textarea>
+            <textarea name="cuerpo" cols="30" rows="10">{{old('cuerpo',$noticia->cuerpo)}}</textarea>
         </label>
 
         @error('cuerpo')
@@ -61,7 +64,7 @@
 
         <label>
             Pie foto:
-            <input type="text" name="piefoto" value="{{old('piefoto')}}">
+            <input type="text" name="piefoto" value="{{old('piefoto',$noticia->piefoto)}}">
         </label>
 
         @error('piefoto')
@@ -70,10 +73,9 @@
             <br>
         @enderror
         <br>
-        <button type="submit">Crear noticia</button>
+        <button type="submit">Actualizar noticia</button>
         <br>
     </form>
-
     <a href="{{route('noticias.index')}}">Volver a noticias</a>
 </body>
 </html>

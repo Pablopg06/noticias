@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('epigrafe');
             $table->string('titulo');
-            $table->string('slug');
+            //$table->string('slug');
             $table->string('subtitulo');
             $table->text('cuerpo');
             $table->string('piefoto');

@@ -14,6 +14,10 @@
     <p>{{$noticia->subtitulo}}</p>
     <p>{{$noticia->cuerpo}}</p>
     <br>
+    <p>{{$noticia->piefoto}}</p>
+
+    <a href="{{route('noticias.edit',$noticia)}}">Editar noticia</a>
+    <br>
 
     <form action="{{route('noticias.destroy',$noticia)}}" method="POST">
         @csrf
