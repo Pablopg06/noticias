@@ -7,10 +7,19 @@
     <title>Noticia</title>
 </head>
 <body>
-    <h1>Titulo: {{$noticia->titulo}}</h1>
+    <p>{{$noticia->epigrafe}}</p>
     <br>
-    <p><strong>Subtítulo: </strong>{{$noticia->subtitulo}}</p>
-    <p>Cuerpo: {{$noticia->cuerpo}}</p>
+    <h1>{{$noticia->titulo}}</h1>
     <br>
+    <p>{{$noticia->subtitulo}}</p>
+    <p>{{$noticia->cuerpo}}</p>
+    <br>
+
+    <form action="{{route('noticias.destroy',$noticia)}}" method="POST">
+        @csrf
+        @method('delete')
+        <button type="submit">Eliminar noticia</button>
+    </form>
+    <a href="{{route('noticias.index')}}">Volver a noticias</a>
 </body>
 </html>

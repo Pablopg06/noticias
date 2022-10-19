@@ -15,10 +15,14 @@
                         Bienvenidos a la seccion de noticias
                     </label>
                     <br>
+                    <a href="{{route('noticias.create')}}">Crear noticia</a>
+                    <br>
+                    <label>Noticias Disponibles:</label>
+                    <br>
                     <ul>
                         @foreach ($noticias as $noticia)
                             <li>
-                                <label>{{$noticia->titulo}}</label>
+                                <a href="{{route('noticias.show',$noticia)}}">{{$noticia->titulo}}</a>
                             </li>
                         @endforeach
                         <br>
