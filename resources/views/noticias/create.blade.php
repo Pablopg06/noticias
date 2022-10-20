@@ -9,7 +9,7 @@
 <body>
     <h1>Seccion para crear una noticia</h1>
     <br>
-    <form action="{{route('noticias.store')}}" method="POST">
+    <form action="{{route('noticias.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <label>
             Epigrafe:
@@ -58,6 +58,18 @@
             <br>
         @enderror
         <br>
+
+        <label>
+            Imagen:
+            <input type="file" name="imagen">
+        </label>
+        @error('imagen')
+            <br>
+            <small>*{{$message}}</small>
+            <br>
+        @enderror
+        <br>
+
 
         <label>
             Pie foto:

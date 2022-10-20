@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Edición de Noticia</h1>
-    <form action="{{route('noticias.update',$noticia)}}" method="POST">
+    <form action="{{route('noticias.update',$noticia)}}" method="POST" enctype="multipart/form-data">
 
         @csrf
 
@@ -56,6 +56,18 @@
         </label>
 
         @error('cuerpo')
+            <br>
+            <small>*{{$message}}</small>
+            <br>
+        @enderror
+        <br>
+
+        <label>
+            Imagen:
+            <input type="file" name="imagen">
+        </label>
+
+        @error('imagen')
             <br>
             <small>*{{$message}}</small>
             <br>

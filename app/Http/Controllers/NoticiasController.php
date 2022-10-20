@@ -19,6 +19,12 @@ class NoticiasController extends Controller
 
     public function store(StoreNoticia $request){
         $noticia = Noticia::create($request->all());
+        $file = $request->file('imagen');
+        $filename = $file->getClientOriginalName();
+        move_uploaded_file(public_path('/img'),$filename);
+        $url = env('APP_URL').'/img/'.$filename;
+        $noticia->imagen = $url; 
+        $noticia->save();
         return redirect()->route('noticias.show',$noticia);
     }
 
@@ -32,6 +38,12 @@ class NoticiasController extends Controller
 
     public function update(StoreNoticia $request, Noticia $noticia){
         $noticia->update($request->all());
+        $file = $request->file('imagen');
+        $filename = $file->getClientOriginalName();
+        move_uploaded_file(public_path('/img'),$filename);
+        $url = env('APP_URL').'/img/'.$filename;
+        $noticia->imagen = $url; 
+        $noticia->save();
         return redirect()->route('noticias.show',$noticia);
     }
 

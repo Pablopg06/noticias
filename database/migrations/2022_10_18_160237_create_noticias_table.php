@@ -20,6 +20,7 @@ return new class extends Migration
             //$table->string('slug');
             $table->string('subtitulo');
             $table->text('cuerpo');
+            $table->string('imagen');
             $table->string('piefoto');
             $table->timestamps();
         });

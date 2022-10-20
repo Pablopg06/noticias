@@ -14,6 +14,9 @@
     <p>{{$noticia->subtitulo}}</p>
     <p>{{$noticia->cuerpo}}</p>
     <br>
+    <img src="{{$noticia->imagen}}" alt="Aqui va una imagen">
+    <p>{{$noticia->imagen}}</p>
+    <br>
     <p>{{$noticia->piefoto}}</p>
 
     <a href="{{route('noticias.edit',$noticia)}}">Editar noticia</a>

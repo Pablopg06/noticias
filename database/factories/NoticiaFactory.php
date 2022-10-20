@@ -24,6 +24,7 @@ class NoticiaFactory extends Factory
             //'slug'=>Str::slug($titulo,'-'),
             'subtitulo'=>$this->faker->sentence(),
             'cuerpo'=>$this->faker->paragraph(),
+            'imagen'=>$this->faker->randomElement(['/c/pablo/image1.jpg','/c/pablo/image2.jpg','/c/pablo/image3.jpg']),
             'piefoto'=>$this->faker->sentence()
         ];
     }

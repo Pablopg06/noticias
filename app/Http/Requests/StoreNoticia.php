@@ -28,6 +28,7 @@ class StoreNoticia extends FormRequest
             'titulo'=>'required|max:20',
             'subtitulo'=>'required|max:20',
             'cuerpo'=>'required|min:50|max:200',
+            'imagen'=>'required',
             'piefoto'=>'required|max:20'
         ];
     }
