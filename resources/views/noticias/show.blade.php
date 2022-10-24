@@ -15,18 +15,20 @@
     <p>{{$noticia->cuerpo}}</p>
     <br>
     <img src="{{$noticia->imagen}}" alt="Aqui va una imagen">
-    <p>{{$noticia->imagen}}</p>
     <br>
     <p>{{$noticia->piefoto}}</p>
-
-    <a href="{{route('noticias.edit',$noticia)}}">Editar noticia</a>
+    @can('noticias.edit')
+        <a href="{{route('noticias.edit',$noticia)}}">Editar noticia</a>
+    @endcan
     <br>
-
-    <form action="{{route('noticias.destroy',$noticia)}}" method="POST">
-        @csrf
-        @method('delete')
-        <button type="submit">Eliminar noticia</button>
-    </form>
+    @can('noticias.destroy')
+        <form action="{{route('noticias.destroy',$noticia)}}" method="POST">
+            @csrf
+            @method('delete')
+            <button type="submit">Eliminar noticia</button>
+        </form>    
+    @endcan
+    
     <a href="{{route('noticias.index')}}">Volver a noticias</a>
 </body>
 </html>

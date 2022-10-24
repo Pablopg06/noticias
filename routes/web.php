@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NoticiasController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Noticia;
@@ -14,9 +15,7 @@ use App\Models\Noticia;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', HomeController::class)->name('home');
 
 /*Route::get('noticias', function () {
     $noticias = Noticia::orderBy('id','desc')->paginate();

@@ -15,7 +15,9 @@
                         Bienvenidos a la seccion de noticias
                     </label>
                     <br>
-                    <a href="{{route('noticias.create')}}">Crear noticia</a>
+                    @can('noticias.create')
+                        <a href="{{route('noticias.create')}}">Crear noticia</a>
+                    @endcan
                     <br>
                     <label>Noticias Disponibles:</label>
                     <br>

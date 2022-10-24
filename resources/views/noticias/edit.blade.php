@@ -88,6 +88,8 @@
         <button type="submit">Actualizar noticia</button>
         <br>
     </form>
-    <a href="{{route('noticias.index')}}">Volver a noticias</a>
+    <a href="{{route('noticias.show',$noticia)}}">Volver a noticia</a>
+    <br>
+    <a href="{{route('noticias.index')}}">Volver a seccion de noticias</a>
 </body>
 </html>

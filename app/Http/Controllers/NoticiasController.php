@@ -21,7 +21,7 @@ class NoticiasController extends Controller
         $noticia = Noticia::create($request->all());
         $file = $request->file('imagen');
         $filename = $file->getClientOriginalName();
-        move_uploaded_file(public_path('/img'),$filename);
+        move_uploaded_file(public_path('/img/'),$filename);
         $url = env('APP_URL').'/img/'.$filename;
         $noticia->imagen = $url; 
         $noticia->save();
@@ -40,7 +40,7 @@ class NoticiasController extends Controller
         $noticia->update($request->all());
         $file = $request->file('imagen');
         $filename = $file->getClientOriginalName();
-        move_uploaded_file(public_path('/img'),$filename);
+        move_uploaded_file(public_path('/img/'),$filename);
         $url = env('APP_URL').'/img/'.$filename;
         $noticia->imagen = $url; 
         $noticia->save();
