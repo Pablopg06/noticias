@@ -1,34 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Noticia</title>
-</head>
-<body>
-    <p>{{$noticia->epigrafe}}</p>
-    <br>
+@extends('adminlte::page')
+
+@section('title','Mostrar Noticia')
+
+@section('content_header')
+
+@stop
+
+@section('content')
+    <h6>{{$noticia->epigrafe}}</h6>
     <h1>{{$noticia->titulo}}</h1>
-    <br>
-    <p>{{$noticia->subtitulo}}</p>
-    <p>{{$noticia->cuerpo}}</p>
-    <br>
+    <h4>{{$noticia->subtitulo}}</h4>
     <img src="{{$noticia->imagen}}" alt="Aqui va una imagen">
     <br>
-    <p>{{$noticia->piefoto}}</p>
-    @can('noticias.edit')
-        <a href="{{route('noticias.edit',$noticia)}}">Editar noticia</a>
-    @endcan
-    <br>
-    @can('noticias.destroy')
-        <form action="{{route('noticias.destroy',$noticia)}}" method="POST">
-            @csrf
-            @method('delete')
-            <button type="submit">Eliminar noticia</button>
-        </form>    
-    @endcan
-    
-    <a href="{{route('noticias.index')}}">Volver a noticias</a>
-</body>
-</html>
+    <small>{{$noticia->piefoto}}</small>
+    <p>{{$noticia->cuerpo}}</p>
+    <a class="btn btn-primary" href="{{route('noticias.index')}}">Volver a la seccion de noticias</a>
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi');</script>
+@stop

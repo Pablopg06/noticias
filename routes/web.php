@@ -23,5 +23,6 @@ Route::get('/', HomeController::class)->name('home');
 })->middleware(['auth', 'verified'])->name('noticias');*/
 
 //Route::get('noticias', [NoticiasController::class,'index'])->middleware(['auth','verified'])->name('noticias.index');
-Route::resource('noticias',NoticiasController::class)->middleware('auth','verified');
+Route::resource('noticias',NoticiasController::class)->middleware('auth','verified')->names('noticias');
+
 require __DIR__.'/auth.php';

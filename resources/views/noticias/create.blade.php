@@ -1,91 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Crear Noticia</title>
-</head>
-<body>
-    <h1>Seccion para crear una noticia</h1>
-    <br>
+@extends('adminlte::page')
+
+@section('title','Crear Noticia')
+
+@section('content_header')
+    <h1>Sección para Crear Noticias</h1>
+@stop
+
+@section('content')
     <form action="{{route('noticias.store')}}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <label>
-            Epigrafe:
-            <input type="text" name="epigrafe" value="{{old('epigrafe')}}">
-        </label>
+        <div class="mb-3">
+            @csrf
 
-        @error('epigrafe')
-            <br>
-            <small>*{{$message}}</small>
-            <br> 
-        @enderror
-        <br>
+            <label class="form-label">
+                Epigrafe:
+                <input type="text" class="form-control" name="epigrafe" value="{{old('epigrafe')}}">
+            </label>
 
-        <label>
-            Titulo:
-            <input type="text" name="titulo" value="{{old('titulo')}}">
-        </label>
+            @error('epigrafe')
+                <br>
+                <small>*{{$message}}</small>
+                <br> 
+            @enderror
+            <br>
 
-        @error('titulo')
-            <br>
-            <small>*{{$message}}</small>
-            <br>
-        @enderror
-        <br>
+            <label class="form-label">
+                Titulo:
+                <input type="text" class="form-control" name="titulo" value="{{old('titulo')}}">
+            </label>
 
-        <label>
-            Subtitulo:
-            <input type="text" name="subtitulo" value="{{old('subtitulo')}}">
-        </label>
+            @error('titulo')
+                <br>
+                <small>*{{$message}}</small>
+                <br>
+            @enderror
+            <br>
 
-        @error('subtitulo')
-            <br>
-            <small>*{{$message}}</small>
-            <br>
-        @enderror
-        <br>
+            <label class="form-label">
+                Subtitulo:
+                <input type="text" class="form-control" name="subtitulo" value="{{old('subtitulo')}}">
+            </label>
 
-        <label>
-            Cuerpo:
-            <textarea name="cuerpo" cols="30" rows="10">{{old('cuerpo')}}</textarea>
-        </label>
+            @error('subtitulo')
+                <br>
+                <small>*{{$message}}</small>
+                <br>
+            @enderror
+            <br>
 
-        @error('cuerpo')
-            <br>
-            <small>*{{$message}}</small>
-            <br>
-        @enderror
-        <br>
+            <label class="form-label">
+                Cuerpo:
+                <textarea name="cuerpo" class="form-control" cols="30" rows="10">{{old('cuerpo')}}</textarea>
+            </label>
 
-        <label>
-            Imagen:
-            <input type="file" name="imagen">
-        </label>
-        @error('imagen')
+            @error('cuerpo')
+                <br>
+                <small>*{{$message}}</small>
+                <br>
+            @enderror
             <br>
-            <small>*{{$message}}</small>
-            <br>
-        @enderror
-        <br>
 
+            <label class="form-label">
+                Imagen:
+                <input type="file" name="imagen">
+            </label>
 
-        <label>
-            Pie foto:
-            <input type="text" name="piefoto" value="{{old('piefoto')}}">
-        </label>
+            @error('imagen')
+                <br>
+                <small>*{{$message}}</small>
+                <br>
+            @enderror
+            <br>
 
-        @error('piefoto')
+            <label class="form-label">
+                Pie foto:
+                <input type="text" class="form-control" name="piefoto" value="{{old('piefoto')}}">
+            </label>
+
+            @error('piefoto')
+                <br>
+                <small>*{{$message}}</small>
+                <br>
+            @enderror
             <br>
-            <small>*{{$message}}</small>
+            <button type="submit" class="btn btn-primary">Crear noticia</button>
             <br>
-        @enderror
-        <br>
-        <button type="submit">Crear noticia</button>
-        <br>
+        </div>
     </form>
+    <a class="btn btn-primary" href="{{route('noticias.index')}}">Volver a seccion de noticias</a>
+@stop
 
-    <a href="{{route('noticias.index')}}">Volver a noticias</a>
-</body>
-</html>
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi');</script>
+@stop
