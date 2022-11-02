@@ -26,5 +26,6 @@ class RolSeeder extends Seeder
         Permission::create(['name'=>'noticias.create'])->assignRole($role1);
         Permission::create(['name'=>'noticias.edit'])->assignRole($role1);
         Permission::create(['name'=>'noticias.destroy'])->assignRole($role1);
+        Permission::create(['name'=>'noticias.publicar'])->assignRole($role1);
     }
 }

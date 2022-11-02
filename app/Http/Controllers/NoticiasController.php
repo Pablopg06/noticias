@@ -51,4 +51,8 @@ class NoticiasController extends Controller
         $noticia->delete();
         return redirect()->route('noticias.index');
     }
+
+    public function publicar(StoreNoticia $request){
+        
+    }
 }

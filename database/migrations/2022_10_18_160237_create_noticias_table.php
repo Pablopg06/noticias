@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('cuerpo');
             $table->string('imagen');
             $table->string('piefoto');
+            $table->boolean('publicar')->default(0);
             $table->timestamps();
         });
     }
