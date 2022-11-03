@@ -52,7 +52,9 @@ class NoticiasController extends Controller
         return redirect()->route('noticias.index');
     }
 
-    public function publicar(StoreNoticia $request){
-        
+    public function publicar(Request $request){
+        $noticia = Noticia::find($request->noticia_id);
+        $noticia->publicar = $request->publicar;
+        $noticia->save();
     }
 }
